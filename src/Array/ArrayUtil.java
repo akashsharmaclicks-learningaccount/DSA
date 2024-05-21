@@ -10,7 +10,7 @@ public class ArrayUtil {
         System.out.println();
     }
 
-    // Method to remove even numbers from an array and return the resulting array
+    // Method to remove even numbers from an array
     public static int[] removeEven(int[] arr) {
         int oddElementsCount = 0;
 
