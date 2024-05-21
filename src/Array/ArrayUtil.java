@@ -6,9 +6,6 @@ public class ArrayUtil {
             System.out.print(arr[i] + " ");
         }
     }
-    public void arrayDesigner(){
-
-    }
 }
 class Runner_2{
     public static void main(String[] args) {
