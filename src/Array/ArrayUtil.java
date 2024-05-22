@@ -64,6 +64,18 @@ public class ArrayUtil {
             end--;
         }
     }
+
+    // Method to find min element in an array
+    public static int findMinimum(int[] arr) {
+        int min = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+
 }
 
 class Runner_2 {
@@ -80,14 +92,18 @@ class Runner_2 {
         int[] arrayResultWithoutEven = ArrayUtil.removeEven(dummyArray);
         obj.printArray(arrayResultWithoutEven);
 
-        //Remove odd numbers and print the resulting array
+        // Remove odd numbers and print the resulting array
         System.out.println("Dummy Array after removing odd elements:");
         int[] arrayResultWithoutOdd = ArrayUtil.removeOdd(dummyArray);
         obj.printArray(arrayResultWithoutOdd);
 
-        //Reverse the array
+        // Reverse the array
         System.out.println("Reversed Array : ");
         ArrayUtil.reverseArray(dummyArray, 0, dummyArray.length-1);
         obj.printArray(dummyArray);
+
+        // Minimum element in array
+        System.out.println("Minimum element : ");
+        System.out.println(ArrayUtil.findMinimum(dummyArray));
     }
 }
