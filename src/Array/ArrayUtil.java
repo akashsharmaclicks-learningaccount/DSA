@@ -52,12 +52,24 @@ public class ArrayUtil {
         }
         return resultArr;
     }
+
+    // Method to reverse the array elements.
+    public static void reverseArray(int[] arr, int start, int end) {
+        while (start<end)
+        {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }
 }
 
 class Runner_2 {
     public static void main(String[] args) {
         ArrayUtil obj = new ArrayUtil();
-        int[] dummyArray = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] dummyArray = {2,11,5,10,7,8};
 
         // Print the original array
         System.out.println("Dummy Array:");
@@ -72,5 +84,10 @@ class Runner_2 {
         System.out.println("Dummy Array after removing odd elements:");
         int[] arrayResultWithoutOdd = ArrayUtil.removeOdd(dummyArray);
         obj.printArray(arrayResultWithoutOdd);
+
+        //Reverse the array
+        System.out.println("Reversed Array : ");
+        ArrayUtil.reverseArray(dummyArray, 0, dummyArray.length-1);
+        obj.printArray(dummyArray);
     }
 }
