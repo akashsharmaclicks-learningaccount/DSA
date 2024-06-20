@@ -76,6 +76,17 @@ public class ArrayUtil {
         return min;
     }
 
+    // Method to find max element in an array
+    public static int findMaximum(int[] arr) {
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+
 }
 
 class Runner_2 {
@@ -105,5 +116,9 @@ class Runner_2 {
         // Minimum element in array
         System.out.println("Minimum element : ");
         System.out.println(ArrayUtil.findMinimum(dummyArray));
+
+        // Maximum element in array
+        System.out.println("Maximum element : ");
+        System.out.println(ArrayUtil.findMaximum(dummyArray));
     }
 }
