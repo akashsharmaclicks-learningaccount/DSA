@@ -87,12 +87,27 @@ public class ArrayUtil {
         return max;
     }
 
+    // Method to find second max element in an array
+    public static int findSecondMax(int[] arr) {
+        int max = Integer.MIN_VALUE;
+        int secondMax = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                secondMax = max;
+                max = arr[i];
+            } else if (arr[i] > secondMax && arr[i] != max) {
+                secondMax = arr[i];
+            }
+        }
+        return secondMax;
+    }
 }
 
 class Runner_2 {
     public static void main(String[] args) {
         ArrayUtil obj = new ArrayUtil();
         int[] dummyArray = {2,11,5,10,7,8};
+        int[] sampleArray = {13,34,2,34,33,1};
 
         // Print the original array
         System.out.println("Dummy Array:");
@@ -120,5 +135,10 @@ class Runner_2 {
         // Maximum element in array
         System.out.println("Maximum element : ");
         System.out.println(ArrayUtil.findMaximum(dummyArray));
+
+        // Second maximum element in array
+        System.out.println("Sample Array:");
+        obj.printArray(sampleArray);
+        System.out.println("Second Max Element : "+ArrayUtil.findSecondMax(sampleArray));
     }
 }
