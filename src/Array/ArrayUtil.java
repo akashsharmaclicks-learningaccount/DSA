@@ -101,44 +101,71 @@ public class ArrayUtil {
         }
         return secondMax;
     }
+
+    // Method to move the zeroes to the last
+    public static void moveZeroesToLast(int[] arr, int n)
+    {
+        int j = 0;
+        for(int i = 0; i<arr.length; i++ )
+        {
+            if(arr[i] != 0 && arr[j] == 0)
+            {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+            if(arr[j] != 0)
+            {
+                j++;
+            }
+        }
+    }
 }
 
 class Runner_2 {
     public static void main(String[] args) {
         ArrayUtil obj = new ArrayUtil();
-        int[] dummyArray = {2,11,5,10,7,8};
+        int[] dummyArray = {9,6,7,5,6,0,2,6,0,8};
         int[] sampleArray = {13,34,2,34,33,1};
+        int[] demoArray = {8,0,6,2,0,6,5,7,6,9};
 
         // Print the original array
-        System.out.println("Dummy Array:");
+        System.out.print("Dummy Array: ");
         obj.printArray(dummyArray);
 
         // Remove even numbers and print the resulting array
-        System.out.println("Dummy Array after removing even elements:");
+        System.out.print("Dummy Array after removing even elements: ");
         int[] arrayResultWithoutEven = ArrayUtil.removeEven(dummyArray);
         obj.printArray(arrayResultWithoutEven);
 
         // Remove odd numbers and print the resulting array
-        System.out.println("Dummy Array after removing odd elements:");
+        System.out.print("Dummy Array after removing odd elements: ");
         int[] arrayResultWithoutOdd = ArrayUtil.removeOdd(dummyArray);
         obj.printArray(arrayResultWithoutOdd);
 
         // Reverse the array
-        System.out.println("Reversed Array : ");
+        System.out.print("Reversed Array: ");
         ArrayUtil.reverseArray(dummyArray, 0, dummyArray.length-1);
         obj.printArray(dummyArray);
 
         // Minimum element in array
-        System.out.println("Minimum element : ");
+        System.out.print("Minimum element: ");
         System.out.println(ArrayUtil.findMinimum(dummyArray));
 
         // Maximum element in array
-        System.out.println("Maximum element : ");
+        System.out.print("Maximum element: ");
         System.out.println(ArrayUtil.findMaximum(dummyArray));
 
         // Second maximum element in array
-        System.out.println("Sample Array:");
+        System.out.print("Sample Array: ");
         obj.printArray(sampleArray);
-        System.out.println("Second Max Element : "+ArrayUtil.findSecondMax(sampleArray));
+        System.out.println("Second Max Element: "+ArrayUtil.findSecondMax(sampleArray));
+
+        // Move zeroes to last
+        System.out.print("Demo Array: ");
+        obj.printArray(demoArray);
+        obj.moveZeroesToLast(demoArray, demoArray.length);
+        System.out.print("Demo Array after moving zeroes to the last: ");
+        obj.printArray(demoArray);
     }
 }
