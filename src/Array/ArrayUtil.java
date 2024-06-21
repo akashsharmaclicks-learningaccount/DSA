@@ -167,6 +167,5 @@ class Runner_2 {
         obj.moveZeroesToLast(demoArray, demoArray.length);
         System.out.print("Demo Array after moving zeroes to the last: ");
         obj.printArray(demoArray);
-
     }
 }
