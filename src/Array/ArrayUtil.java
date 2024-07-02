@@ -1,5 +1,7 @@
 package Array;
 
+import java.util.Arrays;
+
 public class ArrayUtil {
 
     // Method to print elements of an array
@@ -120,6 +122,46 @@ public class ArrayUtil {
             }
         }
     }
+
+    // Method to resize an Array
+    public static int[] resizeArray(int[] arr, int capacity) {
+        int[] temp = new int[capacity];
+        for (int i = 0; i < arr.length; i++) {
+            temp[i] = arr[i];
+        }
+        arr = temp;
+        return  arr;
+    }
+
+    // Method to find a missing number within a range of an Array
+    public static int findMissingNum(int[] arr)
+    {
+        int n = arr.length+1;
+        int sum = n*(n+1)/2;
+        for(int num : arr)
+        {
+            sum = sum - num;
+        }
+        return sum;
+    }
+
+    // Method to check whether a string is palindrome or not.
+    public static boolean isPalindrome(String word)
+    {
+        char[] charArray = word.toCharArray();
+        int start = 0;
+        int end = charArray.length - 1;
+        while(start < end)
+        {
+            if(charArray[start] != charArray[end])
+            {
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
 }
 
 class Runner_2 {
@@ -167,5 +209,19 @@ class Runner_2 {
         obj.moveZeroesToLast(demoArray, demoArray.length);
         System.out.print("Demo Array after moving zeroes to the last: ");
         obj.printArray(demoArray);
+
+        // Resize the array
+        int[] original = {1,2,3,4,5,6,7,8,9,0};
+        System.out.println("The size of original array: "+original.length);
+        original = ArrayUtil.resizeArray(sampleArray, 20);
+        System.out.println("The size of the original array after resize: "+original.length);
+        int[] myArray = {1,2,3,5,6,7,8,9};
+        obj.printArray(myArray);
+        int missingNum = ArrayUtil.findMissingNum(myArray);
+        System.out.print("");
+        System.out.print("The missing number in above array is: "+missingNum);
+        boolean checkPalindrome = ArrayUtil.isPalindrome("MADAM");
+        System.out.println(" ");
+        System.out.println(checkPalindrome);
     }
 }
