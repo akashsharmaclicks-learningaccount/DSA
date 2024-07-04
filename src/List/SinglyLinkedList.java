@@ -14,7 +14,7 @@ public class SinglyLinkedList
         }
     }
 
-    // Method to print the elements of SLL.
+    // Print the elements of SLL.
     public void display()
     {
         ListNode current = head;
@@ -25,6 +25,20 @@ public class SinglyLinkedList
         }
         System.out.println("null");
     }
+
+    // Find the length of SLL.
+    public int findLength()
+    {
+        int count = 0;
+        ListNode current = head;
+        while (current != null)
+        {
+            count++;
+            current = current.next;
+        }
+        return count;
+    }
+
 
     public static void main(String[] args)
     {
@@ -41,5 +55,6 @@ public class SinglyLinkedList
         third.next = fourth;
 
         sll.display();
+        System.out.println("Length of SLL: " + sll.findLength());
     }
 }
