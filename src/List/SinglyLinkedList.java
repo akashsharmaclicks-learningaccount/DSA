@@ -39,6 +39,13 @@ public class SinglyLinkedList
         return count;
     }
 
+    // Insert node at first
+    public void addFirst(int data)
+    {
+        ListNode newNode = new ListNode(data);
+        newNode.next = head;
+        head = newNode;
+    }
 
     public static void main(String[] args)
     {
@@ -54,7 +61,12 @@ public class SinglyLinkedList
         second.next = third;
         third.next = fourth;
 
+        // Usage of the methods
         sll.display();
         System.out.println("Length of SLL: " + sll.findLength());
+        sll.addFirst(55);
+        System.out.println("SLL after adding a new element at first");
+        sll.display();
+        System.out.println("Length of new SLL: " + sll.findLength());
     }
 }
