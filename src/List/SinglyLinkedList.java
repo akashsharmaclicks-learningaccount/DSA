@@ -122,6 +122,27 @@ public class SinglyLinkedList
 
     }
 
+    // Delete node at given position
+    public void deleteAtGivenPosition(int position)
+    {
+        if(position == 1)
+        {
+            head = head.next;
+        }
+        else
+        {
+            ListNode previous = head;
+            int count = 1;
+            while(count < position-1)
+            {
+                previous = previous.next;
+                count++;
+            }
+            ListNode current = previous.next;
+            previous.next = current.next;
+        }
+    }
+
     public static void main(String[] args)
     {
         SinglyLinkedList sll = new SinglyLinkedList();
@@ -170,6 +191,12 @@ public class SinglyLinkedList
         System.out.println("-----------------------------------------");
         sll.deleteLast();
         System.out.println("SLL after deleting last node");
+        sll.display();
+        System.out.println("-----------------------------------------");
+        sll.deleteAtGivenPosition(3);
+        sll.deleteAtGivenPosition(3);
+        sll.deleteAtGivenPosition(3);
+        System.out.println("SLL after adding a new element at position 3");
         sll.display();
         System.out.println("-----------------------------------------");
     }
