@@ -161,6 +161,26 @@ public class SinglyLinkedList
         return false;
     }
 
+    // Reverse Linked List
+    public ListNode reverseList(ListNode head)
+    {
+        if(head == null)
+        {
+            return  head;
+        }
+        ListNode current = head;
+        ListNode previous = null;
+        ListNode next = null;
+        while(current != null)
+        {
+            next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+        return  previous;
+    }
+
     public static void main(String[] args)
     {
         SinglyLinkedList sll = new SinglyLinkedList();
@@ -178,6 +198,11 @@ public class SinglyLinkedList
         // Usage of the methods
         System.out.println("-----------------------------------------");
         System.out.println("Singly Linked List");
+        sll.display();
+        System.out.println("Length of SLL: " + sll.findLength());
+        System.out.println("-----------------------------------------");
+        sll.head = sll.reverseList(sll.head);
+        System.out.println("Reversed Singly Linked List");
         sll.display();
         System.out.println("Length of SLL: " + sll.findLength());
         System.out.println("-----------------------------------------");
@@ -223,5 +248,6 @@ public class SinglyLinkedList
             System.out.println("Search key not found !!!");
         }
         System.out.println("-----------------------------------------");
+
     }
 }
