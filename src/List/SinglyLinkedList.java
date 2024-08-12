@@ -103,6 +103,25 @@ public class SinglyLinkedList
         }
     }
 
+    // Delete last node
+    public ListNode deleteLast()
+    {
+        if(head == null || head.next == null)
+        {
+            return head;
+        }
+            ListNode current = head;
+            ListNode previous = null;
+            while(current.next != null)
+            {
+                previous = current;
+                current = current.next;
+            }
+            previous.next = null;
+            return current;
+
+    }
+
     public static void main(String[] args)
     {
         SinglyLinkedList sll = new SinglyLinkedList();
@@ -128,7 +147,6 @@ public class SinglyLinkedList
         sll.display();
         System.out.println("Length of new SLL: " + sll.findLength());
         System.out.println("-----------------------------------------");
-
         sll.addLast(36);
         System.out.println("SLL after adding a new element at last");
         sll.display();
@@ -148,6 +166,10 @@ public class SinglyLinkedList
         System.out.println("-----------------------------------------");
         sll.deleteFirst();
         System.out.println("SLL after deleting first node");
+        sll.display();
+        System.out.println("-----------------------------------------");
+        sll.deleteLast();
+        System.out.println("SLL after deleting last node");
         sll.display();
         System.out.println("-----------------------------------------");
     }
