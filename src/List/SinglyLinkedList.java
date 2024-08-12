@@ -161,7 +161,7 @@ public class SinglyLinkedList
         return false;
     }
 
-    // Reverse Linked List
+    // LC-206: Reverse Linked List
     public ListNode reverseList(ListNode head)
     {
         if(head == null)
