@@ -1,7 +1,4 @@
 package List;
-
-import javax.swing.*;
-
 public class SinglyLinkedList
 {
     private ListNode head;
@@ -90,6 +87,22 @@ public class SinglyLinkedList
         }
     }
 
+    // Delete first node
+    public ListNode deleteFirst()
+    {
+        if(head == null)
+        {
+            return null;
+        }
+        else
+        {
+            ListNode temp = head;
+            head = head.next;
+            temp.next = null;
+            return temp;
+        }
+    }
+
     public static void main(String[] args)
     {
         SinglyLinkedList sll = new SinglyLinkedList();
@@ -131,6 +144,10 @@ public class SinglyLinkedList
         System.out.println("-----------------------------------------");
         sll.addAtGivenPosition(9,87);
         System.out.println("SLL after adding a new element at position 9");
+        sll.display();
+        System.out.println("-----------------------------------------");
+        sll.deleteFirst();
+        System.out.println("SLL after deleting first node");
         sll.display();
         System.out.println("-----------------------------------------");
     }
