@@ -1,10 +1,10 @@
 package List;
 public class SinglyLinkedList
 {
-    private ListNode head;
+    private static ListNode head;
     private static class ListNode
     {
-        private int data;
+        private final int data;
         private ListNode next;
         public ListNode(int data)
         {
@@ -143,6 +143,24 @@ public class SinglyLinkedList
         }
     }
 
+    // Find key in SLL
+    public boolean findKey(int key)
+    {
+        ListNode current = head;
+        if(head == null)
+        {
+            return false;
+        }
+        while (current != null) {
+            if (current.data == key) {
+                return true;
+            }
+            current = current.next;
+        }
+
+        return false;
+    }
+
     public static void main(String[] args)
     {
         SinglyLinkedList sll = new SinglyLinkedList();
@@ -194,10 +212,16 @@ public class SinglyLinkedList
         sll.display();
         System.out.println("-----------------------------------------");
         sll.deleteAtGivenPosition(3);
-        sll.deleteAtGivenPosition(3);
-        sll.deleteAtGivenPosition(3);
         System.out.println("SLL after adding a new element at position 3");
         sll.display();
+        System.out.println("-----------------------------------------");
+        if(sll.findKey(57))
+        {
+            System.out.println("Search key found !!!");
+        }else
+        {
+            System.out.println("Search key not found !!!");
+        }
         System.out.println("-----------------------------------------");
     }
 }
