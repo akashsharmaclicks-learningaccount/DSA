@@ -1,5 +1,7 @@
 package List;
 
+import javax.swing.*;
+
 public class SinglyLinkedList
 {
     private ListNode head;
@@ -64,6 +66,29 @@ public class SinglyLinkedList
         current.next = newNode;
     }
 
+    public void addAtGivenPosition(int position, int data)
+    {
+        ListNode node = new ListNode(data);
+        if(position == 1)
+        {
+            node.next = head;
+            head = node;
+        }
+        else
+        {
+            ListNode previous = head;
+            int count = 1;
+            while(count < position-1)
+            {
+                previous = previous.next;
+                count++;
+            }
+            ListNode current = previous.next;
+            node.next = current;
+            previous.next = node;
+        }
+    }
+
     public static void main(String[] args)
     {
         SinglyLinkedList sll = new SinglyLinkedList();
@@ -94,6 +119,18 @@ public class SinglyLinkedList
         System.out.println("SLL after adding a new element at last");
         sll.display();
         System.out.println("Length of new SLL: " + sll.findLength());
+        System.out.println("-----------------------------------------");
+        sll.addAtGivenPosition(1,40);
+        System.out.println("SLL after adding a new element at position 1");
+        sll.display();
+        System.out.println("-----------------------------------------");
+        sll.addAtGivenPosition(3,19);
+        System.out.println("SLL after adding a new element at position 2");
+        sll.display();
+        System.out.println("-----------------------------------------");
+        sll.addAtGivenPosition(9,87);
+        System.out.println("SLL after adding a new element at position 9");
+        sll.display();
         System.out.println("-----------------------------------------");
     }
 }
