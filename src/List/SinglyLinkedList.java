@@ -181,6 +181,19 @@ public class SinglyLinkedList
         return  previous;
     }
 
+    // Find middle node of the list
+    public ListNode findMiddle()
+    {
+        ListNode fastPtr = head;
+        ListNode slowPtr = head;
+        while(fastPtr != null && fastPtr.next != null)
+        {
+            slowPtr = slowPtr.next;
+            fastPtr = fastPtr.next.next;
+        }
+        return slowPtr;
+    }
+
     public static void main(String[] args)
     {
         SinglyLinkedList sll = new SinglyLinkedList();
@@ -248,6 +261,8 @@ public class SinglyLinkedList
             System.out.println("Search key not found !!!");
         }
         System.out.println("-----------------------------------------");
-
+        sll.display();
+        System.out.println("Middle Node: "+(sll.findMiddle().data));
+        System.out.println("-----------------------------------------");
     }
 }
